@@ -19,6 +19,13 @@ export class TransactionService {
   ): Promise<Transaction | null> {
     return this.prisma.transaction.findUnique({
       where: transactionWhereUniqueInput,
+      include: {
+        category: {
+          include: {
+            type: true,
+          },
+        },
+      },
     });
   }
 
@@ -45,6 +52,13 @@ export class TransactionService {
       cursor,
       where,
       orderBy,
+      include: {
+        category: {
+          include: {
+            type: true,
+          },
+        },
+      },
     });
   }
 

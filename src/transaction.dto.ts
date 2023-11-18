@@ -11,7 +11,7 @@ export class CreateTransactionDTO {
   description: string;
 
   @ApiProperty()
-  categroryId: number;
+  categoryId: number;
 }
 
 export class UpdateTransactionDTO {
@@ -25,5 +25,5 @@ export class UpdateTransactionDTO {
   description?: string;
 
   @ApiProperty()
-  categroryId?: number;
+  categoryId?: number;
 }

@@ -13,7 +13,7 @@ import { CategoryService } from './category.service';
 import { CreateCategoryDTO, UpdateCategoryDTO } from './category.dto';
 import { TransactionService } from './transaction.service';
 import { CreateTransactionDTO, UpdateTransactionDTO } from './transaction.dto';
-import { ApiBody, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 
 /**
  * Controller for handling API endpoints related to types, categories, and transactions.
@@ -33,6 +33,11 @@ export class AppController {
    */
   @Get('/types')
   @ApiTags('Types')
+  @ApiParam({ name: 'skip', required: false })
+  @ApiParam({ name: 'take', required: false })
+  @ApiParam({ name: 'cursor', required: false })
+  @ApiParam({ name: 'where', required: false })
+  @ApiParam({ name: 'orderBy', required: false })
   async getTypes(params: {
     skip?: number;
     take?: number;
@@ -102,6 +107,11 @@ export class AppController {
    */
   @Get('/categories')
   @ApiTags('Categories')
+  @ApiParam({ name: 'skip', required: false })
+  @ApiParam({ name: 'take', required: false })
+  @ApiParam({ name: 'cursor', required: false })
+  @ApiParam({ name: 'where', required: false })
+  @ApiParam({ name: 'orderBy', required: false })
   async getCategories(params: {
     skip?: number;
     take?: number;
@@ -174,6 +184,11 @@ export class AppController {
    */
   @Get('/transactions')
   @ApiTags('Transactions')
+  @ApiParam({ name: 'skip', required: false })
+  @ApiParam({ name: 'take', required: false })
+  @ApiParam({ name: 'cursor', required: false })
+  @ApiParam({ name: 'where', required: false })
+  @ApiParam({ name: 'orderBy', required: false })
   async getTransactions(params: {
     skip?: number;
     take?: number;

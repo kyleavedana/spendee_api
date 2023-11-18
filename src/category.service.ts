@@ -19,6 +19,9 @@ export class CategoryService {
   ): Promise<Category | null> {
     return this.prisma.category.findUnique({
       where: categoryWhereUniqueInput,
+      include: {
+        type: true,
+      },
     });
   }
 
@@ -45,6 +48,9 @@ export class CategoryService {
       cursor,
       where,
       orderBy,
+      include: {
+        type: true,
+      },
     });
   }
 
